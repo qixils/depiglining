@@ -9,4 +9,6 @@ The current features are as follows:
 - Prevents Piglin Brutes from spawning in structures (like Bastion Remnants)
   and removes them from the "Monsters Hunted" advancement criteria
 
-The mod supports both Fabric and Forge. The former depends on Fabric API. No other mods are required.
+The mod supports both Fabric and Forge.
+The former depends on [Fabric API](https://modrinth.com/mod/fabric-api).
+No other mods are required.
