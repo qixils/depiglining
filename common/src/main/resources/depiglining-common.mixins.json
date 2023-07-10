@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.qixils.depiglining.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "PiglinBruteMixin",
+    "ServerLevelMixin",
+    "WorldGenRegionMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
