@@ -5,7 +5,14 @@
 
   "name": "Depiglining",
   "description": "Reverts speedrunning nerfs from 1.16.2+ like Piglin Brutes and bartering",
-  "authors": ["qixils"],
+  "authors": [
+    {
+      "name": "qixils",
+      "contact": {
+        "homepage": "https://qixils.dev/socials"
+      }
+    }
+  ],
   "contact": {
     "homepage": "https://github.com/qixils/depiglining",
     "sources": "https://github.com/qixils/depiglining",
@@ -15,7 +22,7 @@
   "license": "MIT",
   "icon": "icon.png",
 
-  "environment": "server",
+  "environment": "*",
   "entrypoints": {
     "main": [
       "dev.qixils.depiglining.fabric.DepigliningFabric"
