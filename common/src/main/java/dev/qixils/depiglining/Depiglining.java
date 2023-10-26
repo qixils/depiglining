@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 // TODO: what is PiglinBarterLoot? does it need to be mixin'd? is it used??
@@ -22,10 +23,11 @@ public class Depiglining
 	public static final Set<UUID> TO_REMOVE = new HashSet<>();
 	private static final Set<UUID> IN_TO_REMOVE = new HashSet<>();
 	private static final ScheduledExecutorService EXECUTOR = Executors.newSingleThreadScheduledExecutor();
+	private static ScheduledFuture<?> remover;
 
 	public static void init() {
 		LOGGER.info("Loading Depiglining");
-		EXECUTOR.scheduleAtFixedRate(() -> {
+		remover = EXECUTOR.scheduleAtFixedRate(() -> {
 			Iterator<UUID> iterator = IN_TO_REMOVE.iterator();
 			while (iterator.hasNext()) {
 				UUID uuid = iterator.next();
@@ -35,5 +37,12 @@ public class Depiglining
 			}
 			IN_TO_REMOVE.addAll(TO_REMOVE);
 		}, 10, 10, TimeUnit.SECONDS);
+	}
+
+	public static void stop() {
+		LOGGER.info("Stopping Depiglining");
+		if (remover != null)
+			remover.cancel(false);
+		EXECUTOR.shutdown();
 	}
 }
